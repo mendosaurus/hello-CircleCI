@@ -1,8 +1,10 @@
 version: 2.1
-jobs:
-  build:
-    docker:
-      - image: circleci/node:4.8.2
+commands:
+  sayhello:
+    description: "A very simple command for demonstration purposes"
+    parameters:
+      to:
+        type: string
+        default: "Hello World"
     steps:
-      - checkout
-      - run: echo "hello world"
+      - run: echo << parameters.to >>
